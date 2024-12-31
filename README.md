@@ -1,5 +1,8 @@
 # Dcycle Documentation
 
+* [Project home page](https://documentation.dcycle.com).
+* [This project on GitHub](https://github.com/dcycle/dcycle-documentation).
+
 ## About
 
 Displays a README.md file in a nicely formatted page with a table of contents.
