@@ -89,3 +89,4 @@ Although several excellent projects exist (see "Other similar projects") to mana
 ## Other similar projects
 
 * [Just the Docs](https://just-the-docs.com) is a lot more powerful, with many features.
+* [Paid and free documentation themes at jekyllthemes.io](https://jekyllthemes.io/jekyll-documentation-themes)
