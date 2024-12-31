@@ -11,7 +11,7 @@ For example, [this README.md file](https://github.com/dcycle/dcycle-documentatio
 
 ## Quickstart
 
-Copy only the file `index.html` to any GitHub repo which has a README.md file, and enable GitHub Pages.
+Copy only the file [index.html](https://github.com/dcycle/dcycle-documentation/blob/master/index.html) to any GitHub repo which has a README.md file, and enable GitHub Pages.
 
 ## Typical usage
 
