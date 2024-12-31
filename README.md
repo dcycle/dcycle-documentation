@@ -70,8 +70,16 @@ Then you can visit the site at <http://0.0.0.0:2345>.
 Although several excellent projects exist (see "Other similar projects") to manage documentation, for Dcycle Documentation, our aim is:
 
 * For it to be possible to simply add index.html to any repo which has a README.md file and for the documentation to "just work".
-* Extreme simplicity: we don't use a static site generator, everything is done in Javascript directly in index.html
+* Extreme simplicity: we don't use a static site generator, everything is done in Javascript directly in `index.html`
 * For only one file to be necessary: `index.html`.
+* To access external libraries using CDNs to lessen the code in our repo.
+
+## Libraries used
+
+* [jQuery](https://jquery.com) is used to manipulate the DOM.
+* [Showdown](https://showdownjs.com) is used to convert markdown to HTML.
+* [Bootstrap](https://getbootstrap.com) is used for the visual layout.
+* [Tocbot](https://tscanlin.github.io/tocbot/) is used to generate the table of contents.
 
 ## Other similar projects
 
