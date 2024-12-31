@@ -7,6 +7,8 @@
 
 Displays a README.md file in a nicely formatted page with a table of contents.
 
+For example, [this README.md file](https://github.com/dcycle/dcycle-documentation) can be displayed [like this](https://documentation.dcycle.com).
+
 ## Quickstart
 
 Copy only the file `index.html` to any GitHub repo which has a README.md file, and enable GitHub Pages.
