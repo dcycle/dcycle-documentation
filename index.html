@@ -1,6 +1,7 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title>...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
@@ -64,9 +65,7 @@
         </div>
       </section>
     </main>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.4/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.30.0/tocbot.min.js"></script>
     <script>
       class MyDocumentation {
@@ -75,7 +74,7 @@
           try {
             instance.preflight();
             const markdown = await instance.readReadme();
-            const html = instance.converter().makeHtml(markdown);
+            const html = marked.parse(markdown);
             instance.placeHtml(html);
             instance.createTableOfContents();
             instance.setTitle();
@@ -85,7 +84,7 @@
           }
         }
         getTitleFromMarkup() {
-          const candidate = $('h1').text();
+          const candidate = document.querySelector('h1').textContent;
           if (candidate) {
             return candidate;
           }
@@ -93,7 +92,7 @@
         }
         setTitle() {
           const title = this.getTitleFromMarkup();
-          $('.put-title-here').text(title);
+          document.querySelector('.put-title-here').textContent = title;
           document.title = title;
         }
         createTableOfContents() {
@@ -111,7 +110,9 @@
           });
         }
         placeHtml(html) {
-          $('.put-content-here').html(html);
+          var new_elem = document.createElement('div');
+          new_elem.innerHTML = html;
+          document.querySelector('.put-content-here').appendChild(new_elem);
         }
         preflight() {
           if (location.protocol == 'file:') {
@@ -128,17 +129,8 @@
           return response.text();
         }
         showError(error) {
-          $('.unhide-if-errors').show();
-          $('.put-errors-here').text(error);
-        }
-        constructor() {
-          this._converter = new showdown.Converter();
-        }
-        converter() {
-          return this._converter;
-        }
-        convertReadme() {
-          return this.converter().makeHtml('# Hello, Markdown!');
+          document.querySelector(".unhide-if-errors").style.display = "block";
+          document.querySelector('.put-errors-here').textContent = error;
         }
         static instance() {
           if (!this._instance) {
@@ -147,7 +139,7 @@
           return this._instance;
         }
       }
-      $(document).ready(function() {
+      document.addEventListener("DOMContentLoaded", function(event) {
         MyDocumentation.init();
       });
     </script>

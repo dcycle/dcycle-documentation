@@ -79,10 +79,19 @@ Although several excellent projects exist (see "Other similar projects") to mana
 * For only one file to be necessary: `index.html`.
 * To access external libraries using CDNs to lessen the code in our repo.
 
+## Limiting the size of the page
+
+We have tried to limit the size of the documentation page by:
+
+* Foregoing jQuery in favor of vanilla Javascript, saving 31kb.
+* Loading only Bootstrap CSS, not JS, saving 23kb.
+* Using [Marked](https://marked.js.org) instead of [Showdown](https://showdownjs.com) (both excellent libraries) because Marked is 11kb, compared with 21.4kb for Showdown.
+
+Now, if you load <https://documentation.dcycle.com/> in Chrome, load developer tools, visit the network tab, hard refresh the page (command-shift-R), you will see that the total compressed size of resources transferred is about 53kb.
+
 ## Libraries used
 
-* [jQuery](https://jquery.com) is used to manipulate the DOM.
-* [Showdown](https://showdownjs.com) is used to convert markdown to HTML.
+* [Marked](https://marked.js.org) is used to convert markdown to HTML.
 * [Bootstrap](https://getbootstrap.com) is used for the visual layout.
 * [Tocbot](https://tscanlin.github.io/tocbot/) is used to generate the table of contents.
 
