@@ -74,6 +74,12 @@
           try {
             instance.preflight();
             const markdown = await instance.readReadme();
+            const renderer = new marked.Renderer();
+            renderer.heading = function(text, level) {
+              const id = text.text.toLowerCase().replace(/[^a-zA-Z0-9]+/g, '-');
+              return `<h${text.depth} id="${id}">${text.text}</h${text.depth}>`;
+            }
+            marked.setOptions({renderer});
             const html = marked.parse(markdown);
             instance.placeHtml(html);
             instance.createTableOfContents();
