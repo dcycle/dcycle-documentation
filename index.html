@@ -93,9 +93,10 @@
           }
         }
         getTitleFromMarkup() {
-          const candidate = document.querySelector('h1').textContent;
-          if (candidate) {
-            return candidate;
+          const candidate = document.querySelector('h1');
+          const candidateText = candidate ? candidate.textContent : null;
+          if (candidateText) {
+            return candidateText;
           }
           return 'Documentation';
         }
