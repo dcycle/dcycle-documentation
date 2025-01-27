@@ -17,6 +17,29 @@
       .toc-list a {
         color: black;
       }
+      .toc-list-item {
+        margin: 5px 0;
+      }
+      /* Style the expand/collapse icon */
+      .toc-list-item .toc-expand {
+        cursor: pointer;
+        padding: 5px;
+      }
+      /* Collapsing behavior */
+      .toc-list-item ul {
+        display: none;
+        padding-left: 20px;
+      }
+      .toc-list-item.open > ul {
+        display: block;
+      }
+      /* Icon for expanded or collapsed state */
+      .toc-list-item.open > .toc-expand::before {
+        content: "▼"; /* Down triangle */
+      }
+      .toc-list-item:not(.open) > .toc-expand::before {
+        content: "▶"; /* Right triangle */
+      }
       .back-to-top a {
         position: fixed;
         bottom: 20px;
@@ -117,6 +140,36 @@
             // For headings inside relative or absolute positioned containers within content.
             hasInnerContainers: true,
             orderedList: false,
+          });
+
+          // Script to handle TOC fold/unfold
+          document.querySelectorAll('.toc-list-item').forEach(function(item) {
+              // Check if there is a nested list (sub TOC)
+              if (item.querySelector('ul')) {
+                  const expandIcon = document.createElement('span');
+                  expandIcon.classList.add('toc-expand');
+                  item.prepend(expandIcon);
+
+                  // Initially collapse nested lists
+                  item.classList.remove('open');
+
+                  // Add click event to toggle nested lists
+                  expandIcon.addEventListener('click', function() {
+                      item.classList.toggle('open');
+                  });
+              }
+          });
+
+          // Smooth scrolling for the TOC links
+          document.querySelectorAll('.toc-link').forEach(function(link) {
+              link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  const target = document.querySelector(link.getAttribute('href'));
+                  window.scrollTo({
+                      top: target.offsetTop,
+                      behavior: 'smooth'
+                  });
+              });
           });
         }
         placeHtml(html) {
