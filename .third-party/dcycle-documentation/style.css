@@ -1,0 +1,46 @@
+/* https://fonts.google.com/specimen/Tsukimi+Rounded */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Tsukimi+Rounded&display=swap');
+
+:root {
+  --font-logo: "Tsukimi Rounded", serif;
+  --font-logo-weight: 700;
+  --font-general: "Merriweather Sans", sans-serif;
+  --font-general-weight: 400;
+  --font-code: "Fira Code", monospace;
+  --dark: rgb(0, 82, 163);
+  --light: rgb(212, 225, 246);
+}
+
+* {
+  font-family: var(--font-general);
+  font-optical-sizing: auto;
+  font-weight: var(--font-general-weight);
+  font-style: normal;
+}
+
+a {
+  color: var(--dark);
+}
+
+.back-to-top a {
+  background: var(--dark);
+}
+
+pre, code {
+  font-family: var(--font-code);
+  background: var(--light);
+}
+
+.navbar-brand {
+  font-family: var(--font-logo);
+  font-weight: var(--font-logo-weight);
+  font-style: normal;
+}
+
+.navbar-brand, .navbar-brand a {
+  color: var(--light);
+}
+
+.bg-dark {
+  background-color: var(--dark) !important;
+}

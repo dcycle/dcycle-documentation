@@ -1,4 +1,4 @@
-<!-- Dcycle Documentation 1.1 -->
+<!-- Dcycle Documentation 1.2 -->
 <!-- This file displays the README with a table of contents as a web page -->
 <!-- See https://documentation.dcycle.com -->
 <!doctype html>
@@ -56,6 +56,8 @@
         font-style: italic;
       }
     </style>
+    <!-- You can remove this if you don't want it. -->
+    <link href=".third-party/dcycle-documentation/style.css" rel="stylesheet" />
   </head>
   <body>
     <header class="mb-5">
@@ -144,32 +146,32 @@
 
           // Script to handle TOC fold/unfold
           document.querySelectorAll('.toc-list-item').forEach(function(item) {
-              // Check if there is a nested list (sub TOC)
-              if (item.querySelector('ul')) {
-                  const expandIcon = document.createElement('span');
-                  expandIcon.classList.add('toc-expand');
-                  item.prepend(expandIcon);
+            // Check if there is a nested list (sub TOC)
+            if (item.querySelector('ul')) {
+              const expandIcon = document.createElement('span');
+              expandIcon.classList.add('toc-expand');
+              item.prepend(expandIcon);
 
-                  // Initially collapse nested lists
-                  item.classList.remove('open');
+              // Initially collapse nested lists
+              item.classList.remove('open');
 
-                  // Add click event to toggle nested lists
-                  expandIcon.addEventListener('click', function() {
-                      item.classList.toggle('open');
-                  });
-              }
+              // Add click event to toggle nested lists
+              expandIcon.addEventListener('click', function() {
+                item.classList.toggle('open');
+              });
+            }
           });
 
           // Smooth scrolling for the TOC links
           document.querySelectorAll('.toc-link').forEach(function(link) {
-              link.addEventListener('click', function(e) {
-                  e.preventDefault();
-                  const target = document.querySelector(link.getAttribute('href'));
-                  window.scrollTo({
-                      top: target.offsetTop,
-                      behavior: 'smooth'
-                  });
+            link.addEventListener('click', function(e) {
+              e.preventDefault();
+              const target = document.querySelector(link.getAttribute('href'));
+              window.scrollTo({
+                top: target.offsetTop,
+                behavior: 'smooth'
               });
+            });
           });
         }
         placeHtml(html) {
