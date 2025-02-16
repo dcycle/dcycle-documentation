@@ -102,4 +102,4 @@ Now, if you load <https://documentation.dcycle.com/> in Chrome, load developer t
 
 ## Company-specific styling in a separate css file
 
-If you are looking at this at <https://documentation.dcycle.com>, you will see that .third-party/dcycle-documentation/style.css
+If you are looking at this at <https://documentation.dcycle.com>, you will see that `./.third-party/dcycle-documentation/style.css` contains some extra styling information to fit with the Dcycle brand. You can remove that file, or replace it with your own branding.
