@@ -99,3 +99,7 @@ Now, if you load <https://documentation.dcycle.com/> in Chrome, load developer t
 
 * [Just the Docs](https://just-the-docs.com) is a lot more powerful, with many features.
 * [Paid and free documentation themes at jekyllthemes.io](https://jekyllthemes.io/jekyll-documentation-themes)
+
+## Company-specific styling in a separate css file
+
+If you are looking at this at <https://documentation.dcycle.com>, you will see that .third-party/dcycle-documentation/style.css
